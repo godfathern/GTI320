@@ -24,7 +24,7 @@ public:
     {
     }
 
-    void displaySelf()
+ void displaySelf()
     {
         std::cout << "Object de la classe A avec x=" << m_x << "\n";
     }
