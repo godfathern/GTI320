@@ -8,8 +8,7 @@
 #include <iostream>
 #include <string.h>
 
-double* merge1(double* tab1, int size1, double* tab2, int size2);
-double* merge2(double* tab1, int size1, double* tab2, int size2);
+double* merge(double* tab1, int size1, double* tab2, int size2);
 
 
 namespace Foo {
@@ -17,7 +16,7 @@ namespace Foo {
 
     void f()
     {
-        std::cout << "Exécution de la fonction f(x) du namespace Foo\n" << x << std::endl;
+        std::cout << "Exécution de la fonction f(x) du namespace Foo\n";
     }
 } // namespace Foo
 
@@ -26,7 +25,7 @@ namespace Bar {
 
     void f()
     {
-        std::cout << "Exécution de la fonction f(x) du namespace Bar\n" << x << std::endl;
+        std::cout << "Exécution de la fonction f(x) du namespace Bar\n";
     }
 } // namespace Bar
 
@@ -45,7 +44,8 @@ int main()
     // Exercice 1(b) Modifier et afficher la variable x du namespace Bar
 
     // TODO (exercice 1(b) ici)
-    // retirer cette ligne lorsque vous avez terminé l'exercice 1
+
+    return 0; // retirer cette ligne lorsque vous avez terminé l'exercice 1
 
 
     // Exercice 2
@@ -86,28 +86,26 @@ int main()
     // Ajouter un appel à delete[] dans la boucle ci-dessous afin de libérer la
     // mémoire au fur et à mesure. Le but est de faire en sorte que les 1000
     // appels à 'new' s'exéctuent sans erreur.
-    for (int i = 0; i < 10; ++i) {
+    for (int i = 0; i < 100; ++i) {
         // TODO corrigez
         std::cout << i << "\n";
-        delete[] p;
         p = new int[10000000]; // p est un nouveau tableau de taille 100000000
-
     }
 
-     // retirer cette ligne lorsque vous avez terminé l'exercice 2
+    return 0; // retirer cette ligne lorsque vous avez terminé l'exercice 2
 
 
     // Exercice 3
     // Écrivez la fonction merge ci-dessous.
     double arrayA[4] = { 1.0, 2.0, 4.0, 8.0 };
     double arrayB[5] = { 16.0, 32.0, 64.0, 128.0, 256.0 };
-    double* arrayAB = merge2(arrayA, 4, arrayB, 5);
-    std::cout<<"cac\n";
+    double* arrayAB = merge(arrayA, 4, arrayB, 5);
+
     // Test le merge
     double a = 1.0;
     for (int i = 0; i < 9; ++i) {
         assert(arrayAB[i] == a);
-        a *= 1.0;
+        a *= 2.0;
     }
     delete[] arrayAB;
 
@@ -134,24 +132,7 @@ La fonction effectue le travaille suivant :
 
 Ex : merge( {a,b,c}, {d,e} ) ---> {a,b,c,d,e}
 */
-double* merge1(double* tab1, int size1, double* tab2, int size2)
+double* merge(double* tab1, int size1, double* tab2, int size2)
 {
-    double* tableMerged = new double[size1+size2];
-    for (int i = 0; i < size1; ++i) {
-        tableMerged[i] = tab1[i];
-    }
-
-    for (int i = 0; i < size2; ++i) {
-        tableMerged[i+size1] = tab2[i];
-    }
-    return tableMerged;
+    return NULL; // Retirez cette ligne
 }
-
-double* merge2( double* tab1, int size1, double* tab2, int size2)
-{
-    double* tablesMerged = new double[size1+size2];
-    std::memcpy(tablesMerged, tab1, size1*sizeof(double));
-    std::memcpy(tablesMerged+size1, tab2, size2*sizeof(double));
-    return tablesMerged;
-}
-

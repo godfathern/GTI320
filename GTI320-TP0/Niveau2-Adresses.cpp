@@ -51,7 +51,7 @@ int main()
               << std::endl;
 
     // Exercice : essayer de prédire ce qui sera affiché lorsque la fonction 'uneFct' est exécuté.
-    uneFct(x, y, p);
+    // uneFct(x, y, p);
 
 
     std::cout << "[main] La variable x contient " << x << " et elle est située à l'adresse : " << &x << "\n";
